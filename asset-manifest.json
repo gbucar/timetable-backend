@@ -1,22 +1,38 @@
 {
   "files": {
-    "app.js": "/timetable-frontend/static/js/app.cba383c5.chunk.js",
-    "app.js.map": "/timetable-frontend/static/js/app.cba383c5.chunk.js.map",
+    "app.js": "/timetable-frontend/static/js/app.3ba9694a.chunk.js",
+    "app.js.map": "/timetable-frontend/static/js/app.3ba9694a.chunk.js.map",
     "runtime~app.js": "/timetable-frontend/static/js/runtime~app.bd075daa.js",
     "runtime~app.js.map": "/timetable-frontend/static/js/runtime~app.bd075daa.js.map",
-    "static/js/2.6985a62c.chunk.js": "/timetable-frontend/static/js/2.6985a62c.chunk.js",
-    "static/js/2.6985a62c.chunk.js.map": "/timetable-frontend/static/js/2.6985a62c.chunk.js.map",
+    "static/js/2.d7ddfc0c.chunk.js": "/timetable-frontend/static/js/2.d7ddfc0c.chunk.js",
+    "static/js/2.d7ddfc0c.chunk.js.map": "/timetable-frontend/static/js/2.d7ddfc0c.chunk.js.map",
+    "fonts/AntDesign.ttf": "/timetable-frontend/./fonts/AntDesign.ttf",
+    "fonts/Entypo.ttf": "/timetable-frontend/./fonts/Entypo.ttf",
+    "fonts/Feather.ttf": "/timetable-frontend/./fonts/Feather.ttf",
+    "fonts/FontAwesome.ttf": "/timetable-frontend/./fonts/FontAwesome.ttf",
+    "fonts/FontAwesome5_Brands.ttf": "/timetable-frontend/./fonts/FontAwesome5_Brands.ttf",
+    "fonts/FontAwesome5_Solid.ttf": "/timetable-frontend/./fonts/FontAwesome5_Solid.ttf",
+    "fonts/Fontisto.ttf": "/timetable-frontend/./fonts/Fontisto.ttf",
+    "fonts/Foundation.ttf": "/timetable-frontend/./fonts/Foundation.ttf",
+    "fonts/Ionicons.ttf": "/timetable-frontend/./fonts/Ionicons.ttf",
+    "fonts/MaterialCommunityIcons.ttf": "/timetable-frontend/./fonts/MaterialCommunityIcons.ttf",
+    "fonts/MaterialIcons.ttf": "/timetable-frontend/./fonts/MaterialIcons.ttf",
+    "fonts/SimpleLineIcons.ttf": "/timetable-frontend/./fonts/SimpleLineIcons.ttf",
     "favicon-16.png": "/timetable-frontend/favicon-16.png",
     "favicon-32.png": "/timetable-frontend/favicon-32.png",
     "favicon.ico": "/timetable-frontend/favicon.ico",
     "index.html": "/timetable-frontend/index.html",
     "manifest.json": "/timetable-frontend/manifest.json",
     "serve.json": "/timetable-frontend/serve.json",
-    "static/js/2.6985a62c.chunk.js.LICENSE.txt": "/timetable-frontend/static/js/2.6985a62c.chunk.js.LICENSE.txt"
+    "static/js/2.d7ddfc0c.chunk.js.LICENSE.txt": "/timetable-frontend/static/js/2.d7ddfc0c.chunk.js.LICENSE.txt",
+    "static/media/bell.png": "/timetable-frontend/static/media/bell.cf04af27.png",
+    "static/media/heart.png": "/timetable-frontend/static/media/heart.23b5c2c0.png",
+    "static/media/rocket.png": "/timetable-frontend/static/media/rocket.d2f3bf41.png",
+    "static/media/star.png": "/timetable-frontend/static/media/star.69c71386.png"
   },
   "entrypoints": [
     "static/js/runtime~app.bd075daa.js",
-    "static/js/2.6985a62c.chunk.js",
-    "static/js/app.cba383c5.chunk.js"
+    "static/js/2.d7ddfc0c.chunk.js",
+    "static/js/app.3ba9694a.chunk.js"
   ]
 }
