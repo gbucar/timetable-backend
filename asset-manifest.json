@@ -1,0 +1,22 @@
+{
+  "files": {
+    "app.js": "/timetable-frontend/static/js/app.cba383c5.chunk.js",
+    "app.js.map": "/timetable-frontend/static/js/app.cba383c5.chunk.js.map",
+    "runtime~app.js": "/timetable-frontend/static/js/runtime~app.bd075daa.js",
+    "runtime~app.js.map": "/timetable-frontend/static/js/runtime~app.bd075daa.js.map",
+    "static/js/2.6985a62c.chunk.js": "/timetable-frontend/static/js/2.6985a62c.chunk.js",
+    "static/js/2.6985a62c.chunk.js.map": "/timetable-frontend/static/js/2.6985a62c.chunk.js.map",
+    "favicon-16.png": "/timetable-frontend/favicon-16.png",
+    "favicon-32.png": "/timetable-frontend/favicon-32.png",
+    "favicon.ico": "/timetable-frontend/favicon.ico",
+    "index.html": "/timetable-frontend/index.html",
+    "manifest.json": "/timetable-frontend/manifest.json",
+    "serve.json": "/timetable-frontend/serve.json",
+    "static/js/2.6985a62c.chunk.js.LICENSE.txt": "/timetable-frontend/static/js/2.6985a62c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime~app.bd075daa.js",
+    "static/js/2.6985a62c.chunk.js",
+    "static/js/app.cba383c5.chunk.js"
+  ]
+}
