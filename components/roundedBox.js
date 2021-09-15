@@ -26,7 +26,6 @@ export default class RoundedBox extends Component {
     }
 
     componentWillUnmount () {
-        console.log(this.props.width || "90%")
         Animated.timing(
             this.state.widthValue,
             {
@@ -45,7 +44,7 @@ export default class RoundedBox extends Component {
 
     render() {
         return(
-            <Animated.View onPress={this.handlePress} onRelease style = {[styles.box, {width: this.props.overrideWidth ? this.props.overrideWidth : this.state.width, overflow: this.props.overflow? this.props.overflow : "hiddne", paddingRight: this.props.paddingRight, justifyContent: this.props.justifyContent?this.props.justifyContent : "center", padding:this.props.padding, height:this.props.height?this.props.height : "53px", margin:this.props.margin, borderRasius: this.props.borderRadius?this.props.borderRadius : "25px"}]}>
+            <Animated.View onPress={this.handlePress} onRelease style = {[styles.box, {width: this.props.overrideWidth ? this.props.overrideWidth : this.state.width, overflow: this.props.overflow? this.props.overflow : "hiddne", paddingRight: this.props.paddingRight, justifyContent: this.props.justifyContent?this.props.justifyContent : "center", padding:this.props.padding, height:this.props.height?this.props.height : "53px", margin:this.props.margin, borderRasius: this.props.borderRadius?this.props.borderRadius : "25px", backgroundColor: this.props.backgroundColor? this.props.backgroundColor : "#EFEFEF"}]}>
                 {this.props.children}
             </Animated.View>
         )

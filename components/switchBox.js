@@ -59,7 +59,6 @@ export default class SwitchBox extends Component {
     }
 
     render() {
-        console.log(this.state.opacity)
         return(
             <RoundedBox >
                 <Animated.Text style={[styles.text, {opacity: this.state.opacity}]} onPress={this.handlePress}>{this.state.text}</Animated.Text>

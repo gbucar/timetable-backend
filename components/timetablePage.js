@@ -36,8 +36,6 @@ export default class TimetablePage extends Component {
                     break;
                     case 4:
                         table = table.concat(custom["subjects"].slice(10,12))
-                        console.log(custom["subjects"].slice(10,12))
-                        console.log(table.concat(custom["subjects"].slice(10,12)))
     
                     break;
                 }
@@ -52,20 +50,26 @@ export default class TimetablePage extends Component {
         let name = this.props.user[0];
         let secondName = this.props.user[1];
         let clas = this.props.user[2]
-        let days = ["PON", "TOR", "SRE", "ČET", "PET"];
+        let days = ["P", "T", "S", "Č", "P"];
         let maturaTimetable = this.props.maturaTimetable;
-        let timetable = this.formateMaturaTimetable(maturaTimetable, this.props.timetable, clas)
+        let timetable = this.formateMaturaTimetable(maturaTimetable, this.props.timetable, clas);
+        let gend = (maturaTimetable["gender"] ? maturaTimetable : [{"gender":"r"}])["gender"];
+        let colors = {
+            "m": ["#008CAB", "#ffffff"],
+            "f": ["#FFA7A7", "#ffffff"],
+            "r": ["#E2FF90"]
+        }
         return(
             <View style={styles.container}>
-                <TextBox text = {name + " " + secondName}></TextBox>
+                <TextBox backgroundColor = {colors[gend][0]} color={colors[gend][1]} text = {name + " " + secondName}></TextBox>
                 <View style= {styles.timetableContainer}>
                     {
                         timetable.map((a, i) => {
                             return (
                             <RoundedBox overflow="shown" width="98%" key = {i}><Text style={styles.text}>{days[i]}</Text>
-                                <RoundedBox borderRadius="5px" overflow="scroll" justifyContent="space-around" overrideWidth="80%">
+                                <RoundedBox borderRadius="5px" overflow="show" justifyContent="space-around" overrideWidth="90%">
                                     {a.map(a => {
-                                        return(<TextBox margin="1px" overrideWidth="auto" padding={5} fontSize={"100%"} key = {Math.random()} text={a} height = "auto"></TextBox>)
+                                        return(<TextBox backgroundColor={colors[gend][0]} margin="1px" overrideWidth="auto" padding={5} fontSize={"100%"} key = {Math.random()} text={a} height = "auto" color = {colors[gend][1]}></TextBox>)
                                     })}
                                 </RoundedBox>
                             </RoundedBox>
