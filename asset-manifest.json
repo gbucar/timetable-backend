@@ -1,7 +1,7 @@
 {
   "files": {
-    "app.js": "/timetable-frontend/static/js/app.1844864f.chunk.js",
-    "app.js.map": "/timetable-frontend/static/js/app.1844864f.chunk.js.map",
+    "app.js": "/timetable-frontend/static/js/app.67a3edd4.chunk.js",
+    "app.js.map": "/timetable-frontend/static/js/app.67a3edd4.chunk.js.map",
     "runtime~app.js": "/timetable-frontend/static/js/runtime~app.bd075daa.js",
     "runtime~app.js.map": "/timetable-frontend/static/js/runtime~app.bd075daa.js.map",
     "static/js/2.d7ddfc0c.chunk.js": "/timetable-frontend/static/js/2.d7ddfc0c.chunk.js",
@@ -33,6 +33,6 @@
   "entrypoints": [
     "static/js/runtime~app.bd075daa.js",
     "static/js/2.d7ddfc0c.chunk.js",
-    "static/js/app.1844864f.chunk.js"
+    "static/js/app.67a3edd4.chunk.js"
   ]
 }
