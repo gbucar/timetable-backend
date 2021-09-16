@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Linking, Image, TouchableOpacity } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import RoundedBox from './roundedBox';
 import TextBox from './textBox';
@@ -8,7 +8,7 @@ import TextBox from './textBox';
 export default class TimetablePage extends Component {
     constructor(props) {
         super(props)
-
+        this.openTimetable = this.openTimetable.bind(this);
     }
 
     formateMaturaTimetable(maturaTimetable, timetable, clas) {
@@ -46,6 +46,15 @@ export default class TimetablePage extends Component {
         }
         return nTimetable
     }
+    formateTimetableLink() {
+        let d = new Date()
+        d = d.getMonth() + 1
+        d = String(d)
+        if (d.length) d = "0" + d
+        return "https://gz.zelimlje.si/wp-content/uploads/sites/2/2021/" + d +"/Urnik_teden.pdf"
+    }
+
+    openTimetable() {Linking.openURL('https://docs.google.com/gview?url=' + this.formateTimetableLink())}
 
     render() {
         let name = this.props.user[0];
@@ -62,7 +71,7 @@ export default class TimetablePage extends Component {
         }
         return(
             <View style={styles.container}>
-                <TextBox backgroundColor = {colors[gend][0]} color={colors[gend][1]} text = {name + " " + secondName}></TextBox>
+                <TextBox backgroundColor = {colors[gend][0]} color={colors[gend][1]} text = {name + " " + secondName}><TouchableOpacity onPress={this.openTimetable}><Image style={styles.imageLink}source={require(gend == "r"? "../assets/link_gray.png" : "../assets/link.png")}></Image></TouchableOpacity></TextBox>
                 <View style= {styles.timetableContainer}>
                     {
                         timetable.map((a, i) => {
@@ -104,5 +113,10 @@ const styles = StyleSheet.create({
         textAlign: "center",
         fontSize: "150%",
         margin: "auto"
+    },
+    imageLink: {
+        width: "40px",
+        height: "40px",
+        margin: "10px"
     }
 });

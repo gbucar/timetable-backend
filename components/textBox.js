@@ -9,7 +9,8 @@ export default class TextBox extends Component {
     render() {
         return(
             <RoundedBox {...this.props}>
-                <Text  style = {[styles.text, {fontSize:this.props.fontSize?this.props.fontSize:"150%", color:this.props.color?this.props.color : "#909090"}]}>{this.props.text}</Text>
+                <Text onPress={this.props.onPress} style = {[styles.text, {fontSize:this.props.fontSize?this.props.fontSize:"150%", color:this.props.color?this.props.color : "#909090"}]}>{this.props.text}</Text>
+                {this.props.children}
             </RoundedBox>
         );
     }
