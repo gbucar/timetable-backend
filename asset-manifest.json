@@ -1,11 +1,11 @@
 {
   "files": {
-    "app.js": "/timetable-frontend/static/js/app.842f3571.chunk.js",
-    "app.js.map": "/timetable-frontend/static/js/app.842f3571.chunk.js.map",
+    "app.js": "/timetable-frontend/static/js/app.8adacebd.chunk.js",
+    "app.js.map": "/timetable-frontend/static/js/app.8adacebd.chunk.js.map",
     "runtime~app.js": "/timetable-frontend/static/js/runtime~app.bd075daa.js",
     "runtime~app.js.map": "/timetable-frontend/static/js/runtime~app.bd075daa.js.map",
-    "static/js/2.01551554.chunk.js": "/timetable-frontend/static/js/2.01551554.chunk.js",
-    "static/js/2.01551554.chunk.js.map": "/timetable-frontend/static/js/2.01551554.chunk.js.map",
+    "static/js/2.87c6500d.chunk.js": "/timetable-frontend/static/js/2.87c6500d.chunk.js",
+    "static/js/2.87c6500d.chunk.js.map": "/timetable-frontend/static/js/2.87c6500d.chunk.js.map",
     "fonts/AntDesign.ttf": "/timetable-frontend/./fonts/AntDesign.ttf",
     "fonts/Entypo.ttf": "/timetable-frontend/./fonts/Entypo.ttf",
     "fonts/Feather.ttf": "/timetable-frontend/./fonts/Feather.ttf",
@@ -24,15 +24,17 @@
     "index.html": "/timetable-frontend/index.html",
     "manifest.json": "/timetable-frontend/manifest.json",
     "serve.json": "/timetable-frontend/serve.json",
-    "static/js/2.01551554.chunk.js.LICENSE.txt": "/timetable-frontend/static/js/2.01551554.chunk.js.LICENSE.txt",
+    "static/js/2.87c6500d.chunk.js.LICENSE.txt": "/timetable-frontend/static/js/2.87c6500d.chunk.js.LICENSE.txt",
     "static/media/bell.png": "/timetable-frontend/static/media/bell.cf04af27.png",
     "static/media/heart.png": "/timetable-frontend/static/media/heart.23b5c2c0.png",
+    "static/media/link.png": "/timetable-frontend/static/media/link.a0e509c9.png",
+    "static/media/link_gray.png": "/timetable-frontend/static/media/link_gray.27d2191b.png",
     "static/media/rocket.png": "/timetable-frontend/static/media/rocket.d2f3bf41.png",
     "static/media/star.png": "/timetable-frontend/static/media/star.69c71386.png"
   },
   "entrypoints": [
     "static/js/runtime~app.bd075daa.js",
-    "static/js/2.01551554.chunk.js",
-    "static/js/app.842f3571.chunk.js"
+    "static/js/2.87c6500d.chunk.js",
+    "static/js/app.8adacebd.chunk.js"
   ]
 }
