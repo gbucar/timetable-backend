@@ -51,7 +51,8 @@ export default class App extends Component {
   async handleNavigationArrowPress () {
     if (this.state.logged) {
       this.setState({
-        logged: false
+        logged: false,
+        online: true
       });
       return true
     }
