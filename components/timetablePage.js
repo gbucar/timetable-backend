@@ -53,7 +53,7 @@ export default class TimetablePage extends Component {
         let days = ["P", "T", "S", "Č", "P"];
         let maturaTimetable = this.props.maturaTimetable;
         let timetable = this.formateMaturaTimetable(maturaTimetable, this.props.timetable, clas);
-        let gend = (maturaTimetable["gender"] ? maturaTimetable : [{"gender":"r"}])["gender"];
+        let gend = maturaTimetable ? maturaTimetable["gender"] : "r";
         let colors = {
             "m": ["#008CAB", "#ffffff"],
             "f": ["#FFA7A7", "#ffffff"],
@@ -69,6 +69,7 @@ export default class TimetablePage extends Component {
                             <RoundedBox overflow="shown" width="98%" key = {i}><Text style={styles.text}>{days[i]}</Text>
                                 <RoundedBox borderRadius="5px" overflow="show" justifyContent="space-around" overrideWidth="90%">
                                     {a.map(a => {
+                                        a = !a || a == "---"? ";)" : a;
                                         return(<TextBox backgroundColor={colors[gend][0]} margin="1px" overrideWidth="auto" padding={5} fontSize={"100%"} key = {Math.random()} text={a} height = "auto" color = {colors[gend][1]}></TextBox>)
                                     })}
                                 </RoundedBox>
