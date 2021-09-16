@@ -10,9 +10,11 @@ export default class InputBox extends Component {
         }
         this.onFocus=this.onFocus.bind(this)
     }
+    
     onFocus() {
         this.setState({borderColor: "#909090"})
     }
+
     render() {
         return(
             <RoundedBox>

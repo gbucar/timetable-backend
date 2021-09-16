@@ -71,16 +71,28 @@ export default class NavigationArrow extends Component {
     ).start();
     this.setState({left: true})
   }
-  handlePress () {
-    
-    this.state.left ? this.rotateLeft() : this.rotateRight();
 
-    this.setState({
-      rotation: this.state.rotateValue.interpolate({inputRange: [0,1], outputRange: ["0deg","-180deg"]}),
-    });
+  resetDirection() {
+    if (this.state.left) {
+      this.rotateRight()
+    }
+  }
 
+  async handlePress () {
+    let a = await this.props.onPress()
+    console.log(a)
+    if (!a) {
+      console.log(a)
+      return
+    }
+    else {
+      console.log(a)
+      this.state.left ? this.rotateLeft() : this.rotateRight();
 
-    this.props.onPress()
+      this.setState({
+        rotation: this.state.rotateValue.interpolate({inputRange: [0,1], outputRange: ["0deg","-180deg"]}),
+      });
+    }
   }
 
 

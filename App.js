@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { StyleSheet, View, } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import NavigationArrow from './components/navigationArrow';
-import RoundedBox from './components/roundedBox';
 import InputBox from './components/inputBox';
 import SwitchBox from './components/switchBox';
 import TimetablePage from './components/timetablePage';
@@ -30,7 +29,7 @@ export default class App extends Component {
 
   getClass(name, secondName) {
     for (let cls in classes) {
-      if (classes[cls].includes(name + " " + secondName)) {
+      if (classes[cls].includes((name.split(" ")[1]?(name.split(" ")[0]+" "+ name.split(" ")[1][0]+ ". " ) : name+" " )+ secondName)) {
         return cls
       }
     }
@@ -50,16 +49,19 @@ export default class App extends Component {
   }
 
   async handleNavigationArrowPress () {
+    console.log("hnapress")
     if (this.state.logged) {
       this.setState({
         logged: false
       });
+      return true
     }
     else {
       let name = this.state.name.trim().toLowerCase();
       let secondName = this.state.secondName.trim().toLowerCase();
       let online = this.state.online;
       let cls = this.getClass(name, secondName);
+      if (!name || !secondName || !cls) return
       if (cls) {
         this.saveCredentials([name, secondName]);
         this.setState({logged:true, loading:true});
@@ -73,6 +75,7 @@ export default class App extends Component {
           cls:cls
         });
       }
+      return true
     }
   }
 
