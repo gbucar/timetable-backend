@@ -8,11 +8,14 @@ export default class NavigationArrow extends Component {
     this.state = {
       rotateValue: new Animated.Value(0),
       left: true,
-      sizeValue: new Animated.Value(0)
+      sizeValue: new Animated.Value(0),
+      topValue: new Animated.Value(0)
     }
     this.handlePress = this.handlePress.bind(this);
     this.rotateRight = this.rotateRight.bind(this);
     this.rotateLeft = this.rotateLeft.bind(this);
+    this.disappearAnim = this.disappearAnim.bind(this);
+    this.animate = this.animate.bind(this);
   }
 
   componentDidMount() {
@@ -39,6 +42,7 @@ export default class NavigationArrow extends Component {
         duration: 500,
         useNativeDriver: false,
         easing: Easing.back(),
+    
       }
     ).start();
     this.setState({
@@ -78,15 +82,27 @@ export default class NavigationArrow extends Component {
     }
   }
 
+  animate() {
+    this.disappearAnim();
+    setTimeout(
+      () => {
+        if (this.props.loading) {
+          this.animate();
+        }
+      }, 2000
+    )
+  }
+
   async handlePress () {
+    this.animate();
+
     let a = await this.props.onPress()
-    console.log(a)
     if (!a) {
-      console.log(a)
+      this.disappearAnim();
       return
     }
     else {
-      console.log(a)
+      this.disappearAnim();
       this.state.left ? this.rotateLeft() : this.rotateRight();
 
       this.setState({
@@ -94,6 +110,40 @@ export default class NavigationArrow extends Component {
       });
     }
   }
+
+  disappearAnim() {
+
+    Animated.timing(
+      this.state.topValue,
+      {
+        toValue: 0,
+        duration: 500,
+        useNativeDriver: false,
+        easing: Easing.back(),
+      }
+    ).start();
+
+    new Promise(() => {
+      setTimeout(
+        ()=> {
+          Animated.timing(
+            this.state.topValue,
+            {
+              toValue: 1,
+              duration: 500,
+              useNativeDriver: false,
+              easing: Easing.back(),
+            }
+          ).start();
+        }, 500
+      )
+    })
+
+    this.setState({
+      size: this.state.topValue.interpolate({inputRange: [0,1], outputRange: ["0px","53px"]})
+    });
+  }
+
 
 
   render () {

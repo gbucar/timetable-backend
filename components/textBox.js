@@ -7,7 +7,6 @@ export default class TextBox extends Component {
         super(props)
     }
     render() {
-        console.log(this.props.height)
         return(
             <RoundedBox {...this.props}>
                 <Text  style = {[styles.text, {fontSize:this.props.fontSize?this.props.fontSize:"150%", color:this.props.color?this.props.color : "#909090"}]}>{this.props.text}</Text>

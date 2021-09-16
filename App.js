@@ -49,7 +49,6 @@ export default class App extends Component {
   }
 
   async handleNavigationArrowPress () {
-    console.log("hnapress")
     if (this.state.logged) {
       this.setState({
         logged: false
@@ -101,7 +100,7 @@ export default class App extends Component {
             :
             this.state.loading?"":<TimetablePage maturaTimetable={matura_timetable[this.state.name.trim().toLowerCase() + " " + this.state.secondName.trim().toLowerCase()]} user = {[this.state.name, this.state.secondName, this.state.cls]} timetable = {this.state.timetable}></TimetablePage>
           }
-            <NavigationArrow onPress = {this.handleNavigationArrowPress} />
+            <NavigationArrow loading = {this.state.loading}onPress = {this.handleNavigationArrowPress} />
         </View>
       </SafeAreaProvider>
     );

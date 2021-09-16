@@ -42,7 +42,6 @@ export default class TimetablePage extends Component {
                     break;
                 }
             }
-            console.log(table)
             nTimetable.push(table);
         }
         return nTimetable
