@@ -26,7 +26,7 @@ export default class SwitchBox extends Component {
             this.state.opacityValue,
                 {
                 toValue: 0,
-                duration: 500,
+                duration: 100,
                 useNativeDriver: false,
                 }
             ),
@@ -34,7 +34,7 @@ export default class SwitchBox extends Component {
                 this.state.opacityValue,
                 {
                 toValue: 1,
-                duration: 500,
+                duration: 100,
                 useNativeDriver: false,
                 }
             )
@@ -53,9 +53,9 @@ export default class SwitchBox extends Component {
     }
 
     handlePress() {
-        this.fadeText();
-        new Promise(() => setTimeout(this.switchText, 500));
         this.props.onPress();
+        this.fadeText();
+        new Promise(() => setTimeout(this.switchText, 100));
     }
 
     render() {
