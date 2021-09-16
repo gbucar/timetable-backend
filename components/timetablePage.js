@@ -17,6 +17,8 @@ export default class TimetablePage extends Component {
         let custom=maturaTimetable;
         for(let day in timetable){
             let table = timetable[day]
+            if (table)
+            {table=[...table]}
             if (table.length > 0) {
                 switch (parseInt(day)) {
                     case 0:
@@ -40,7 +42,7 @@ export default class TimetablePage extends Component {
                     break;
                 }
             }
-
+            console.log(table)
             nTimetable.push(table);
         }
         return nTimetable
@@ -66,8 +68,8 @@ export default class TimetablePage extends Component {
                     {
                         timetable.map((a, i) => {
                             return (
-                            <RoundedBox overflow="shown" width="98%" key = {i}><Text style={styles.text}>{days[i]}</Text>
-                                <RoundedBox borderRadius="5px" overflow="show" justifyContent="space-around" overrideWidth="90%">
+                            <RoundedBox justifyContent="center" width="98%" key = {i}><Text style={styles.text}>{days[i]}</Text>
+                                <RoundedBox borderRadius="5px" overflow="scroll" justifyContent="space-around" maxWidth="95%" minWidth="90%">
                                     {a.map(a => {
                                         a = !a || a == "---"? ";)" : a;
                                         return(<TextBox backgroundColor={colors[gend][0]} margin="1px" overrideWidth="auto" padding={5} fontSize={"100%"} key = {Math.random()} text={a} height = "auto" color = {colors[gend][1]}></TextBox>)

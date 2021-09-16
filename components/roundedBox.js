@@ -44,7 +44,7 @@ export default class RoundedBox extends Component {
 
     render() {
         return(
-            <Animated.View onPress={this.handlePress} onRelease style = {[styles.box, {width: this.props.overrideWidth ? this.props.overrideWidth : this.state.width, overflow: this.props.overflow? this.props.overflow : "hiddne", paddingRight: this.props.paddingRight, justifyContent: this.props.justifyContent?this.props.justifyContent : "center", padding:this.props.padding, height:this.props.height?this.props.height : "53px", margin:this.props.margin, borderRasius: this.props.borderRadius?this.props.borderRadius : "25px", backgroundColor: this.props.backgroundColor? this.props.backgroundColor : "#EFEFEF"}]}>
+            <Animated.View onPress={this.handlePress} onRelease style = {[styles.box, {width: this.props.overrideWidth ? this.props.overrideWidth : this.state.width, overflow: this.props.overflow? this.props.overflow : "hidden", paddingRight: this.props.paddingRight, justifyContent: this.props.justifyContent?this.props.justifyContent : "center", padding:this.props.padding, height: this.props.height || "53px", margin:this.props.margin, borderRasius: this.props.borderRadius?this.props.borderRadius : "25px", backgroundColor: this.props.backgroundColor? this.props.backgroundColor : "#EFEFEF", minWidth: this.props.minWidth}]}>
                 {this.props.children}
             </Animated.View>
         )
@@ -61,6 +61,5 @@ const styles = StyleSheet.create({
         alignItems: "center",
         boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
         flexDirection: 'row',
-        overflowLeft: "scroll"
     }
 })
