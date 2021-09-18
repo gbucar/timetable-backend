@@ -36,7 +36,8 @@ export default class App extends Component {
   }
 
   async componentDidMount() {
-    let [name, secondName] = JSON.parse(await AsyncStorage.getItem("credentials"))
+    let credentials = JSON.parse(await AsyncStorage.getItem("credentials"))
+    let [name, secondName] = credentials || ["", ""]
     this.setState({
       name: name,
       secondName: secondName
@@ -65,12 +66,7 @@ export default class App extends Component {
       if (cls) {
         this.saveCredentials([name, secondName]);
         this.setState({logged:true, loading:true});
-        let timetable = timetable_a
-        if (online) {
-          await fetch("https://timetable-gz.herokuapp.com/").then(a => a.json()).then(a => {timetable = a}).catch(a => console.warn(a));
-        }
         this.setState({
-          timetable: timetable[cls],
           loading: false,
           cls:cls
         });
@@ -99,9 +95,14 @@ export default class App extends Component {
               <SwitchBox onPress={this.handlePress} textOne="ONLINE URNIK" textTwo="OSNOVEN URNIK"></SwitchBox>
             </View>  
             :
-            this.state.loading?"":<TimetablePage maturaTimetable={matura_timetable[this.state.name.trim().toLowerCase() + " " + this.state.secondName.trim().toLowerCase()]} user = {[this.state.name, this.state.secondName, this.state.cls]} timetable = {this.state.timetable}></TimetablePage>
+            this.state.loading?"":<TimetablePage 
+              user = {[this.state.name, this.state.secondName, this.state.cls]}
+              online = {this.state.online}
+              className = {this.state.className} ></TimetablePage>
           }
-            <NavigationArrow loading = {this.state.loading}onPress = {this.handleNavigationArrowPress} />
+            <NavigationArrow
+              loading = {this.state.loading}onPress = {this.handleNavigationArrowPress} />
+
         </View>
       </SafeAreaProvider>
     );

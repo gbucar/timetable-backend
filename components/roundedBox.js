@@ -6,7 +6,8 @@ export default class RoundedBox extends Component {
         super(props)
         this.state = {
             widthValue: new Animated.Value(0),
-            width: ""            
+            width: "",
+            height: ""       
         }
         this.componentWillUnmount = this.componentWillUnmount.bind(this);
         this.componentDidMount = this.componentDidMount.bind(this);
@@ -22,7 +23,10 @@ export default class RoundedBox extends Component {
               easing: Easing.back(),
             }
           ).start();
-          this.setState({width: this.state.widthValue.interpolate({inputRange: [0,1], outputRange: ["0%", this.props.width || "90%"]})});
+          this.setState({
+              width: this.state.widthValue.interpolate({inputRange: [0,1], outputRange: ["0%", this.props.width || "90%"]}),
+              height: this.state.widthValue.interpolate({inputRange: [0,1], outputRange: ["0px",  this.props.height && this.props.height.endsWith("px") ? this.props.height : false || "53px"]})
+            });
     }
 
     componentWillUnmount () {
@@ -34,8 +38,11 @@ export default class RoundedBox extends Component {
               useNativeDriver: false,
               easing: Easing.back(),
             }
-          ).start();
-          this.setState({width:this.state.widthValue.interpolate({inputRange: [0,1], outputRange: ["0%", this.props.width || "90%"]})});
+        ).start();
+        this.setState({
+            width:this.state.widthValue.interpolate({inputRange: [0,1], outputRange: ["0%", this.props.width || "90%"]}),
+            height: this.state.widthValue.interpolate({inputRange: [0,1], outputRange: ["0px", this.props.height && this.props.height.endsWith("px") ? this.props.height : false || "53px"]})
+        });
     }
 
     handlePress() {
@@ -44,7 +51,7 @@ export default class RoundedBox extends Component {
 
     render() {
         return(
-            <Animated.View onPress={this.props.onPress} onRelease style = {[styles.box, {width: this.props.overrideWidth ? this.props.overrideWidth : this.state.width, overflow: this.props.overflow? this.props.overflow : "hidden", paddingRight: this.props.paddingRight, justifyContent: this.props.justifyContent?this.props.justifyContent : "center", padding:this.props.padding, height: this.props.height || "53px", margin:this.props.margin, borderRasius: this.props.borderRadius?this.props.borderRadius : "25px", backgroundColor: this.props.backgroundColor? this.props.backgroundColor : "#EFEFEF", minWidth: this.props.minWidth}]}>
+            <Animated.View onPress={this.props.onPress} onRelease style = {[styles.box, {width: this.props.overrideWidth ? this.props.overrideWidth : this.state.width, overflow: this.props.overflow? this.props.overflow : "hidden", paddingRight: this.props.paddingRight, justifyContent: this.props.justifyContent?this.props.justifyContent : "center", padding:this.props.padding, height: this.props.height? this.props.height : this.state.height, margin:this.props.margin, borderRasius: this.props.borderRadius?this.props.borderRadius : "25px", backgroundColor: this.props.backgroundColor? this.props.backgroundColor : "#EFEFEF", minWidth: this.props.minWidth, marginRight: this.props.marginRight}]}>
                 {this.props.children}
             </Animated.View>
         )
