@@ -82,7 +82,7 @@ export default class TimetablePage extends Component {
                             let today = new Date().getDay()-1;
                             
                             return (
-                            <RoundedBox justifyContent="center" width="98%" key = {i} style = {[styles.dayContainer]}><Text style={[styles.text, {fontWeight: today == i ? "bold" : ""}]}>{days[i]}</Text>
+                            <RoundedBox justifyContent="center" width="95%" key = {i} style = {[styles.dayContainer]}><Text style={[styles.text, {fontWeight: today == i ? "bold" : ""}]}>{days[i]}</Text>
                                 <RoundedBox padding = "5px" borderRadius="5px" overflow="scroll" backgroundColor={today == i ? "#cbcbcb" : "#EFEFEF"} justifyContent={"safe center"} maxWidth="95%" minWidth="90%">
                                     <View style = {styles.subjectsContainer}>
                                         {
