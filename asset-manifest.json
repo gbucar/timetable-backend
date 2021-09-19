@@ -1,11 +1,11 @@
 {
   "files": {
-    "app.js": "/timetable-frontend/static/js/app.1a2dab51.chunk.js",
-    "app.js.map": "/timetable-frontend/static/js/app.1a2dab51.chunk.js.map",
+    "app.js": "/timetable-frontend/static/js/app.c597e43e.chunk.js",
+    "app.js.map": "/timetable-frontend/static/js/app.c597e43e.chunk.js.map",
     "runtime~app.js": "/timetable-frontend/static/js/runtime~app.bd075daa.js",
     "runtime~app.js.map": "/timetable-frontend/static/js/runtime~app.bd075daa.js.map",
-    "static/js/2.1bd6f8fa.chunk.js": "/timetable-frontend/static/js/2.1bd6f8fa.chunk.js",
-    "static/js/2.1bd6f8fa.chunk.js.map": "/timetable-frontend/static/js/2.1bd6f8fa.chunk.js.map",
+    "static/js/2.3b13d2c5.chunk.js": "/timetable-frontend/static/js/2.3b13d2c5.chunk.js",
+    "static/js/2.3b13d2c5.chunk.js.map": "/timetable-frontend/static/js/2.3b13d2c5.chunk.js.map",
     "fonts/AntDesign.ttf": "/timetable-frontend/./fonts/AntDesign.ttf",
     "fonts/Entypo.ttf": "/timetable-frontend/./fonts/Entypo.ttf",
     "fonts/Feather.ttf": "/timetable-frontend/./fonts/Feather.ttf",
@@ -24,7 +24,7 @@
     "index.html": "/timetable-frontend/index.html",
     "manifest.json": "/timetable-frontend/manifest.json",
     "serve.json": "/timetable-frontend/serve.json",
-    "static/js/2.1bd6f8fa.chunk.js.LICENSE.txt": "/timetable-frontend/static/js/2.1bd6f8fa.chunk.js.LICENSE.txt",
+    "static/js/2.3b13d2c5.chunk.js.LICENSE.txt": "/timetable-frontend/static/js/2.3b13d2c5.chunk.js.LICENSE.txt",
     "static/media/bell.png": "/timetable-frontend/static/media/bell.cf04af27.png",
     "static/media/heart.png": "/timetable-frontend/static/media/heart.23b5c2c0.png",
     "static/media/link.png": "/timetable-frontend/static/media/link.a0e509c9.png",
@@ -34,7 +34,7 @@
   },
   "entrypoints": [
     "static/js/runtime~app.bd075daa.js",
-    "static/js/2.1bd6f8fa.chunk.js",
-    "static/js/app.1a2dab51.chunk.js"
+    "static/js/2.3b13d2c5.chunk.js",
+    "static/js/app.c597e43e.chunk.js"
   ]
 }
