@@ -26,16 +26,15 @@ export default class TimetablePage extends Component {
         return "https://gz.zelimlje.si/wp-content/uploads/sites/2/2021/" + d +"/Urnik_teden.pdf"
     }
     
-    formateApiLink(firstName, secondName, online, className) {
-        return "https://timetable-gz.herokuapp.com/personalized?first_name=" + firstName + "&second_name=" + secondName + "&online=" + (online ? "1" : "0") + "&class_name=" + className
-    }
+
 
     async componentDidMount() {
         let firstName = this.props.user[0];
         let secondName = this.props.user[1];
         let online = this.props.online;
         let className = this.props.className;
-        await fetch(this.formateApiLink(firstName, secondName, online, className))
+        let path = "/personalized";
+        await fetch(this.props.formateApiLink(path,firstName, secondName, online, className))
             .then(a => a.json())
             .then((a)=> {
                 console.log(a)

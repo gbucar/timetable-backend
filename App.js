@@ -27,12 +27,12 @@ export default class App extends Component {
     this.handlePress = this.handlePress.bind(this);
   }
 
-  getClass(name, secondName) {
-    for (let cls in classes) {
-      if (classes[cls].includes((name.split(" ")[1]?(name.split(" ")[0]+" "+ name.split(" ")[1][0]+ ". " ) : name+" " )+ secondName)) {
-        return cls
-      }
-    }
+  async getClasses(name, secondName) {
+    let classNames =  []
+    await fetch(this.formateApiLink("/class", name, secondName))
+      .then(a => a.json())
+      .then(a => classNames=a)
+    return classNames
   }
 
   async componentDidMount() {
@@ -60,10 +60,10 @@ export default class App extends Component {
     else {
       let name = this.state.name.trim().toLowerCase();
       let secondName = this.state.secondName.trim().toLowerCase();
-      let online = this.state.online;
-      let cls = this.getClass(name, secondName);
-      if (!name || !secondName || !cls) return
-      if (cls) {
+      let cls = await this.getClasses(name, secondName);
+      if (cls.length >1) alert("Izgleda, da se tvoje ime pojavi v več oddelkih (" + cls.join(", ") + "). Prikazan bo urnik " + cls[0] + ". Opravičujem se za to napako in delam na tem, da jo odpravim. Do takrat lahko uporabljaš ime kakšnega sošolca 🙂😕")
+      if (!name || !secondName || !cls[0]) return;
+      if (cls[0]) {
         this.saveCredentials([name, secondName]);
         this.setState({logged:true, loading:true});
         this.setState({
@@ -81,6 +81,10 @@ export default class App extends Component {
     });
   }
 
+  formateApiLink(path, firstName, secondName, online, className) {
+    return "https://timetable-gz.herokuapp.com" + path + "?first_name=" + firstName + "&second_name=" + secondName + "&online=" + (online ? "1" : "0") + "&class_name=" + className
+  }
+
 
   render() {
     return (
@@ -95,10 +99,12 @@ export default class App extends Component {
               <SwitchBox onPress={this.handlePress} textOne="ONLINE URNIK" textTwo="OSNOVEN URNIK"></SwitchBox>
             </View>  
             :
-            this.state.loading?"":<TimetablePage 
+            this.state.loading?"":
+            <TimetablePage 
               user = {[this.state.name, this.state.secondName, this.state.cls]}
               online = {this.state.online}
-              className = {this.state.className} ></TimetablePage>
+              className = {this.state.className}
+              formateApiLink = {this.formateApiLink} ></TimetablePage>
           }
             <NavigationArrow
               loading = {this.state.loading}onPress = {this.handleNavigationArrowPress} />
