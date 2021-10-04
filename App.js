@@ -6,9 +6,6 @@ import NavigationArrow from './components/navigationArrow';
 import InputBox from './components/inputBox';
 import SwitchBox from './components/switchBox';
 import TimetablePage from './components/timetablePage';
-import classes from './assets/json/classes.json'
-import matura_timetable from './assets/json/matura_timetable.json'
-import timetable_a from './assets/json/timetable_a.json'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default class App extends Component {
@@ -99,7 +96,7 @@ export default class App extends Component {
               <SwitchBox onPress={this.handlePress} textOne="ONLINE URNIK" textTwo="OSNOVEN URNIK"></SwitchBox>
             </View>  
             :
-            this.state.loading?"":
+            this.state.loading? [] :
             <TimetablePage 
               user = {[this.state.name, this.state.secondName, this.state.cls]}
               online = {this.state.online}

@@ -22,7 +22,7 @@ export default class TimetablePage extends Component {
         let d = new Date()
         d = d.getMonth() + 1
         d = String(d)
-        if (d.length) d = "0" + d
+        if (d.length == 1) d = "0" + d
         return "https://gz.zelimlje.si/wp-content/uploads/sites/2/2021/" + d +"/Urnik_teden.pdf"
     }
     
@@ -37,7 +37,6 @@ export default class TimetablePage extends Component {
         await fetch(this.props.formateApiLink(path,firstName, secondName, online, className))
             .then(a => a.json())
             .then((a)=> {
-                console.log(a)
                 this.setState({
                     timetable: a.timetable,
                     gender: a.gender,
@@ -60,6 +59,7 @@ export default class TimetablePage extends Component {
 
     render() {
         let days = ["P", "T", "S", "Č", "P"];
+        let image_source = this.state.gender == "r"? require("../assets/link_gray.png") : require("../assets/link.png");
         return(
             <View style={[styles.container, this.state.timetable.length ? {} : {display: 'none'}]}>
                 <TextBox 
@@ -71,7 +71,7 @@ export default class TimetablePage extends Component {
                             onPress={this.openTimetable}>
                                 <Image 
                                     style={styles.imageLink}
-                                    source={require(this.state.gender == "r"? "../assets/link_gray.png" : "../assets/link.png")}>    
+                                    source={image_source}>    
                                 </Image>
                         </TouchableOpacity>
                 </TextBox>
@@ -82,15 +82,13 @@ export default class TimetablePage extends Component {
                             
                             return (
                             <RoundedBox justifyContent="center" width="95%" key = {i} style = {[styles.dayContainer]}><Text style={[styles.text, {fontWeight: today == i ? "bold" : ""}]}>{days[i]}</Text>
-                                <RoundedBox padding = "5px" borderRadius="5px" overflow="scroll" backgroundColor={today == i ? "#cbcbcb" : "#EFEFEF"} justifyContent={"safe center"} maxWidth="95%" minWidth="90%">
-                                    <View style = {styles.subjectsContainer}>
+                                <RoundedBox padding = "5px" borderRadius="5px" overflow="scroll" backgroundColor={today == i ? "#cbcbcb" : "#EFEFEF"} justifyContent={"left"} maxWidth="95%" minWidth="90%">
                                         {
                                             a.map(a => {
                                                 a = !a || a == "---"? ";)" : a;
                                                 return(<TextBox backgroundColor={i >=today || today < 6 ? this.getColor(0) : "#cbcbcb"} margin="3px" overrideWidth="auto" padding={5} fontSize={"100%"} key = {Math.random()} text={a} height = "auto" color = {this.getColor(1)}></TextBox>)
                                             })
                                         }
-                                    </View>
                                 </RoundedBox>
                             </RoundedBox>
                             );
